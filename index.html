@@ -1,0 +1,2811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Script do MathJax no <head> -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+    <title>Nivelamento - Matemática Nivel 1 - Unidade 1</title>
+</head>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .titulo-programa {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .titulo-materia {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 133px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .subtitulo-professor {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 59px;
+            color: #0058B4;
+            font-weight: lighter;
+        }
+
+        .titulo-unidade {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 60px;
+        }
+
+        .titulo-saiba-mais {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 70px;
+        }
+        /* Estilização de Bebas Neue FIM */
+
+
+        /* Estilização de Roboto INICIO */
+        .peso-1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 45px;
+        }
+
+        .texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 35px;
+        }
+
+        .sub-texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .titulo-box {
+            font-family: 'Roboto', sans-serif;
+            font-size: 32px;
+        }
+
+        .fonte {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .citacao {
+            font-family: 'Roboto', sans-serif;
+            font-size: 30px;
+            font-style: italic;
+        }
+        /* Estilização de Roboto FIM */
+
+        /* Navbar styles INICIO */
+        .navbar {
+            background-color: #9F43BE;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            position: -webkit-sticky; /* Para navegadores antigos */
+            position: sticky; /* Para manter no topo durante o scroll */
+            top: 0; /* Faz com que a navbar fique no topo */
+            z-index: 10; /* Garante que o menu fique acima de outros elementos */
+            transition: background-color 0.3s ease; /* Transição suave para o efeito */
+        }
+
+        .navbar .logo img {
+            height: 50px;/* Ajuste conforme necessário */
+            width: auto;
+        }
+
+        .navbar .menu-toggle {
+            cursor: pointer;
+            font-size: 1.5em;
+            display: block;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            background-color: #9f43be;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            z-index: 10; /* Garante que o menu esteja acima de outros elementos */
+        }
+
+        .navbar ul.show {
+            display: flex;
+        }
+
+        .navbar ul li {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .navbar ul li a:hover {
+            color: #003974; /* Cor ao passar o mouse */
+        }
+        .navbar .menu-toggle i:last-child {
+            display: none; /* Esconde o ícone de fechar inicialmente */
+        }
+        
+
+         /* Navbar styles FIM */
+
+        /* Titulo styles INICIO */
+        .titulo-intro {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .titulo-intro h1 {
+            margin: 0;
+            padding: 15px;
+        }
+        /* Titulo styles FIM */
+
+        /* Estilo da Capa do Livro INICIO*/
+        .capa-livro {
+            position: relative;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden; /* Para evitar que o pseudoelemento saia do container */
+            border-top: 3px solid #003974;
+            border-bottom: 3px solid #003974;
+        }
+
+        .capa-livro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://res.cloudinary.com/di4ria1pf/image/upload/v1759947170/IMAGEM_CAPA_iwoapi.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.40; /* Controle da opacidade */
+            z-index: -1; /* Coloca o background atrás do conteúdo */
+        }
+
+        
+
+        .capa-livro .conteudo-capa {
+            text-align: center;
+            color: white;
+            padding: 20px; /* Espaço interno para o texto */
+        }
+
+        .capa-livro .titulo-materia {
+            font-size: 80px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 0;
+        }
+
+        .capa-livro .subtitulo-professor {
+            font-size: 40px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 10px 0 0;
+        }
+        /* Estilo da Capa do Livro FIM*/
+
+        /* Barra Superior */
+        .barra-superior {
+            background-color: #015A42; /* Cor verde escuro */
+            width: 100%;
+            padding: 15px 15px;
+            text-align: center;
+            box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+            overflow-x: hidden; /* Previne rolagem horizontal */
+        }
+
+        .barra-superior .titulo-barra {
+            font-family: 'Bebas Neue', cursive;
+            color: #FFF; /* Cor branca */
+            font-size: 50px;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        /* Conteúdo da Introdução */
+        .introducao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            overflow-x: hidden; /* Impede rolagem horizontal */
+        }
+        
+        .introducao .titulo-introducao {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42; /* Cor verde */
+            margin: 10px auto 10px auto;
+        }
+
+        .introducao .caixa-texto {
+            width: 100%;
+            background-color: #E2F4EB; /* Verde mais claro */
+            padding: 64px 0;
+        }
+                /* Conteúdo centralizado dentro da faixa */
+        .introducao .conteudo-centralizado {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Parágrafos da introdução */
+        .introducao .conteudo-centralizado p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* RESPONSIVIDADE SEÇÕES ACIMA*/
+        /* Capa do Livro - Responsividade */
+        @media (max-width: 768px) {
+            .capa-livro {
+                height: 70vh; /* Reduz a altura da capa */
+            }
+            .capa-livro::before {
+                background-position: center center; /* centraliza melhor no mobile */
+            }
+            .capa-livro .titulo-materia {
+                font-size: 40px; /* Reduz o tamanho do título */
+            }
+
+            .capa-livro .subtitulo-professor {
+                font-size: 24px; /* Reduz o tamanho do subtítulo */
+            }
+            .capa-livro .titulo-programa {
+                font-size: 18px;
+            }
+            .capa-livro .conteudo-capa {
+                padding: 15px; /* Ajusta o padding para telas menores */
+            }
+        }   
+            /* Seção Introdução - Responsividade */
+        @media (max-width: 768px) {
+            .barra-superior {
+                padding: 10px; /* Reduz o padding da barra */
+            }
+
+            .barra-superior .titulo-barra {
+                font-size: 1.6rem;
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 30px;
+                text-align: left;
+            }
+
+            .introducao .titulo-introducao {
+                font-size: 2.8rem; /* Reduz o tamanho do título da introdução */
+                margin-top: 20px; /* Ajusta o espaçamento superior */
+            }
+
+            .introducao .caixa-texto {
+                padding: 20px; /* Reduz o padding da caixa de texto */
+                width: 100%; /* Ajusta a largura da caixa */
+            }
+
+            .introducao .caixa-texto p {
+                font-size: 1rem; /* Reduz o tamanho do texto */
+                line-height: 1.4;
+                margin-bottom: 10px; /* Ajusta a margem entre os parágrafos */
+            }
+            .introducao .conteudo-centralizado {
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 40px;
+            }
+        }
+        /* Responsividade para o título da seção de Programa */
+        @media (max-width: 768px) {
+            .titulo-programa {
+                font-size: 50px; /* Ajuste do tamanho do título */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-programa {
+                font-size: 35px; /* Ajuste para telas muito pequenas */
+            }
+        }
+        /* Estilo base da seção */
+        .secao1 .conteudo-secao {
+            width: 100% !important;
+            padding: 64px 0 !important; /* padding vertical conforme solicitado */
+            box-sizing: border-box !important;
+        }
+        .secao1 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .secao1 .tabs-section {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        /* Estilo base da seção */
+        .secao1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #9f43be11;
+            padding: 20px;
+        }
+        .secao1 .outer-container-alt {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao1 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao1 .faixa-verde {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao1 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao1 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao1 p {
+            font-size: 19px;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;    
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 1rem;
+            }
+            .secao1 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 0.95rem;
+            }
+        }
+        /* Estilo base da seção */
+        .secao2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .secao2 .conteudo-secao {
+            width: 100%;
+            padding: 64px 0;
+            box-sizing: border-box;
+        }
+        .secao2 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+       .secao2 .outer-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao2 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao2 .faixa-verde {
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao2 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao2 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #3a95a6; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao2 p {
+            font-size: 19px;
+            font-family: 'Roboto', sans-serif;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;
+                 
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 30px;
+            }
+
+            .secao2 p {
+                font-size: 1rem;
+            }
+            .secao2 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 24px;
+            }
+
+            .secao2 p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* === Bloco de Figura (sem slider) === */
+        .bloco-figura {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 2px solid #9F43BE;
+            background-color: #fff;
+            border-radius: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+                /* Apenas para o bloco da Figura 20 */
+        .bloco-figura.figura-20 {
+            border: 2px solid #015A42;
+        }
+        /* Título */
+        .bloco-figura .titulo-figura {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: normal; /* remove o negrito */
+            font-style: normal;  /* caso também queira evitar itálico */
+        }
+        .bloco-figura .figura::after {
+            content: " "; /* espaço */
+            white-space: pre; /* garante que o espaço seja preservado */
+        }
+        .bloco-figura .titulo-figura .figura {
+            color: #015A42; /* verde padrão */
+        }
+
+        /* Imagem centralizada */
+        .bloco-figura .figura-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .bloco-figura .figura-container img {
+            max-width: 90%;
+            height: auto;
+        }
+
+        /* Fonte */
+        .bloco-figura .fonte-imagem {
+            font-size: 12px;
+            color: #555;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Descrição */
+        .bloco-figura .descricao-figura {
+            font-size: 14px;
+            color: #333;
+            text-align: justify;
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .bloco-figura {
+                padding: 15px;
+            }
+            .bloco-figura .titulo-figura {
+                font-size: 18px;
+            }
+            .bloco-figura .descricao-figura {
+                font-size: 13px;
+            }
+        }
+        /* === Bloco Horizontal === */
+        .bloco-figura-horizontal {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 2px solid #9F43BE;
+            background-color: #fff;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Título */
+        .bloco-figura-horizontal .titulo-figura {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: left;
+            font-weight: normal; /* remove o negrito */
+            font-style: normal;  /* caso também queira evitar itálico */
+        }
+        .bloco-figura-horizontal .figura::after {
+            content: " "; /* espaço */
+            white-space: pre; /* garante que o espaço seja preservado */
+        }
+        .bloco-figura-horizontal .titulo-figura .figura {
+            color: #015A42; /* verde padrão */
+        }
+
+        /* Layout horizontal */
+        .conteudo-horizontal {
+            display: flex;
+            align-items: center; /* centraliza verticalmente imagem e texto */
+            justify-content: center;
+            flex-wrap: wrap; /* quebra em telas menores */
+        }
+
+        /* Imagem */
+        .lado-imagem {
+            flex: 1 1 41%;
+            text-align: center !important;
+        }
+
+        .lado-imagem img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 8px;
+        }
+
+        /* Fonte abaixo da imagem */
+        .lado-imagem .fonte-imagem {
+            font-size: 10px !important;
+            color: #555;
+            text-align: justify !important;
+            margin-left: 5px;
+        }
+
+        /* Texto */
+        .lado-texto {
+            flex: 1 1 55%;
+        }
+
+        .lado-texto .paragrafo-figura {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        .lado-texto .descricao-figura {
+            font-size: 14px;
+            color: #333;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .conteudo-horizontal {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .lado-imagem, .lado-texto {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+
+            .lado-imagem .fonte-imagem {
+                text-align: center;
+                margin-left: 0;
+            }
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: grab;
+            overflow: hidden;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* garante que se ajuste à tela inicialmente */
+            transition: transform 0.2s ease;
+            transform-origin: center center;
+        }
+        .lightbox-hint {
+            position: absolute;
+            bottom: 20px;
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+            font-family: sans-serif;
+            text-align: center;
+            animation: fadeOut 4s forwards; /* some sozinho */
+        }
+        .zoomable {
+            cursor: zoom-in; /* ícone de lupa ao passar o mouse */
+            transition: transform 0.2s ease;
+        }
+
+        .zoomable:hover {
+            transform: scale(1.02); /* leve efeito de destaque no hover */
+        }
+        @keyframes fadeOut {
+            0% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+                /* Animação suave */
+                @keyframes zoomIn {
+                    from { transform: scale(0.7); opacity: 0; }
+                    to { transform: scale(1); opacity: 1; }
+                }
+    
+     /* Acordeon styles */
+        .acordeon-container {
+            margin-top: 20px;
+            width: 90%; /* Ajuste de largura */
+            max-width: 800px; /* Limite máximo */
+        }
+
+        .acordeon {
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .acordeon-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3a95a6;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .acordeon-headerb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #9F43BE;
+            color: #FFF;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerd {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969; /* exemplo: laranja suave */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-content {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #3a95a6;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentb {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #134969;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentc {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #9F43BE;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentd {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; 
+            border: 2px solid #134969; /* mesma cor da header para consistência */
+            border-radius: 0 0 10px 10px; 
+        }
+
+        .acordeon-content p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentb p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc h4 {
+            text-align: center;
+
+        }
+        .acordeon-contentd p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .tituloacordeonverde{
+            color: #015A42;
+        }
+            /* Estilo do ícone da seta */
+        .acordeon-icon {
+            font-size: 40px;
+            transition: transform 0.3s ease; /* Para rotação suave */
+        }
+            
+            /* Rotação da seta para cima */
+        .acordeon-header.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerb.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerc.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+                /* Ícone giratório */
+        .acordeon-headerd.active .acordeon-icon {
+            transform: rotate(180deg);
+        }
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .acordeon-header {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerb {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+
+            .acordeon-headerc {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerd {
+                font-size: 20px;
+                padding: 12px;
+            }
+
+            .acordeon-contentd {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd p {
+                margin: 15px;
+            }
+        }
+        /* Responsividade para telas menores ainda (480px) */
+        @media (max-width: 480px) {
+            .acordeon-header {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+            .acordeon-headerb {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+
+            .acordeon-headerc {
+                font-size: 14px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+            .acordeon-headerd {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .acordeon-contentd p {
+                margin: 10px;
+                font-size: 19px;
+            }
+        }
+            /* Acordeon styles FIM */
+
+            /* SLIDER TEXTO CONTAINER */
+            .slider-texto-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            border: 2px solid #3a95a6;
+            padding: 20px 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-color: #FFF;
+            border-radius: 8px;
+        }
+        .slider-texto-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .slide-texto {
+            display: none;
+            flex-shrink: 0;
+            width: 100%;
+            text-align: center;
+            word-break: keep-all;
+            white-space: normal;
+            
+        }
+
+        .slide-texto.ativo {
+            display: block;
+        }
+
+        .titulo-texto {
+            color: #b9e5a9;
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+        }
+
+        .conteudo-texto {
+            font-size: 16px !important;
+            color: #333 !important;
+            font-family: 'Roboto', sans-serif !important;
+            width: 100%;
+            margin: 0 auto;
+            word-break: normal;
+            white-space: normal;
+            text-align: left !important;
+        }
+        .titulo-texto,
+        .conteudo-texto {
+            word-break: break-word;
+            white-space: normal;
+        }
+        .seta-texto {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            font-size: 30px;
+            color: #3a95a6;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .seta-texto.esquerda {
+            left: 0;
+        }
+
+        .seta-texto.direita {
+            right: 0;
+        }
+
+    @media (max-width: 768px) {
+        .titulo-texto {
+            font-size: 20px;
+        }
+
+        .conteudo-texto {
+            font-size: 18px;
+        }
+
+        .seta-texto {
+            font-size: 24px;
+        }
+    }
+        .slider-texto-indicadores {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .dot-texto {
+            height: 12px;
+            width: 12px;
+            margin: 0 6px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot-texto.ativo {
+            background-color: #3a95a6;
+        }
+        /* ------------------- */
+        /* TEMAS DE COR        */
+        /* ------------------- */
+
+        /* Tema verde */
+        .tema-verde {
+            border-color: #92d678;
+        }
+        .tema-verdeborda {
+            border-color: #015A42 !important;
+        }
+        .tema-verde .seta-texto {
+            color: #92d678;
+        }
+        .tema-verde .dot-texto.ativo {
+            background-color: #92d678;
+        }
+
+        /* Tema roxo */
+        .tema-roxo {
+            border-color: #134969;
+        }
+        .tema-roxo .seta-texto {
+            color: #134969;
+        }
+        .tema-roxo .dot-texto.ativo {
+            background-color: #134969;
+        }
+
+        /* Tema roxo */
+        .tema-green {
+            border-color: #015A42;
+        }
+        .tema-green .seta-texto {
+            color: #015A42;
+        }
+        .tema-green .dot-texto.ativo {
+            background-color: #015A42;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .seta-texto { font-size: 24px; }
+            .conteudo-texto { font-size: 18px; }
+        }
+        /* SLIDER TEXTO CONTAINER FIM */
+
+        /* TESTES */
+                .quadro-sinais {
+            width: 80%;
+            max-width: 600px;
+            margin: 40px auto;
+            border: 2px solid #015A42;
+            border-radius: 6px;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .quadro-superior {
+            display: flex;
+            border-bottom: 2px solid #015A42;
+        }
+
+        .metade-esquerda, .metade-direita {
+            width: 50%;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* linha vertical no meio */
+        .metade-esquerda {
+            border-right: 2px solid #015A42;
+        }
+
+        .quadro-inferior {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .quadro-violeta {
+            width: 90%;
+            max-width: 650px;
+            margin: 40px auto;
+            border: 2px solid#9F43BE;
+            background-color: #fff;
+            border-radius: 6px;
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+                /* Cria duas colunas invisíveis lado a lado */
+        .colunas-invisiveis {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 0px;
+            flex-wrap: wrap; /* garante responsividade em telas pequenas */
+        }
+
+        .coluna {
+            flex: 1 1 45%; /* duas colunas com largura ajustável */
+        }
+
+        .quadro-vertical {
+            width: 90%;
+            max-width: 800px;           /* largura aumentada */
+            margin: 40px auto;
+            border: 2px solid #9F43BE;  /* borda violeta do quadro */
+            border-radius: 6px;
+            background-color: #FFF;
+            padding: 0;                 /* sem espaçamento interno */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;     /* empilha os retângulos verticalmente */
+        }
+
+        .quadro-vertical .retangulo {
+            background-color: #f9f9f9;  /* fundo neutro */
+            padding: 15px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+            border-bottom: 2px solid #9F43BE; /* borda interna separadora */
+        }
+
+        /* Remove a borda do último retângulo para evitar duplicação */
+        .quadro-vertical .retangulo:last-child {
+            border-bottom: none;
+        }
+        /* TESTES */
+
+        .quadro-problema {
+            max-width: 800px;
+            margin: 20px auto;
+            border: 2px solid #015A42;
+            border-radius: 10px;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            
+        }
+
+        .quadro-problema .topo {
+            background-color: #ffffff;
+            padding: 10px;
+            
+        }
+
+        .quadro-problema .resolucao {
+            background-color: #E2F4EB;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .quadro-problema h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .quadro-problema p {
+            line-height: 1.5;
+        }
+
+        .quadro-problema code {
+            background-color: #d9f0e1;
+            padding: 2px 4px;
+            border-radius: 20px;
+            font-family: monospace;
+        }
+        .figura-container-reduzida {
+            text-align: center; /* centraliza a imagem */
+            margin: 15px 0; /* espaço acima e abaixo da imagem */
+        }
+
+        .figura-container-reduzida img {
+            max-width: 60%; /* não ultrapassa a largura do quadro */
+            height: auto; /* mantém proporção */
+            border-radius: 4px; /* opcional, suaviza bordas */
+        }
+        strong {
+            color: #000000;
+        }
+        
+        .play-icon {
+            display: flex; /* Flexbox para centralizar o conteúdo */
+            justify-content: center;
+            align-items: center;
+            background-color: #015A42; /* Fundo verde */
+            color: #FFF; /* Ícone branco */
+            width: 90px; /* Largura do botão */
+            height: 55px; /* Altura do botão */
+            border-radius: 13px;
+            font-size: 40px; /* Tamanho do ícone */
+            cursor: pointer; /* Cursor de clique */
+            transition: transform 0.3s ease; /* Efeito de transição */
+        }
+
+        .play-icon:hover {
+            transform: scale(1.1); /* Aumenta levemente no hover */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .play-icon {
+                width: 60px; /* Diminui a largura */
+                height: 40px; /* Diminui a altura */
+                font-size: 25px; /* Diminui o tamanho do ícone */
+            }
+        }
+        /* Modal - Oculto por padrão */
+        .video-modal {
+            display: none; /* Inicialmente o modal está oculto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro transparente */
+            z-index: 1000; /* Garantir que o modal fique acima de outros conteúdos */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Conteúdo do modal (onde ficará o vídeo) */
+        .video-content {
+            position: relative;
+            background-color: #015A42;
+            border-radius: 10px;
+            padding: 20px;
+        }
+         
+        /* Responsividade - Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            .video-content {
+                max-width: 100%; /* Maximize a largura do modal no mobile */
+                padding: 10px;
+            }
+
+            .video-content iframe {
+                width: 100%; /* O iframe ocupará toda a largura disponível */
+                height: 56.25vw; /* Isso mantém a proporção de 16:9 */
+                max-height: 80vh; /* Evita que o vídeo ultrapasse a tela */
+                border-radius: 10px;
+            }
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 40px;
+            color: #FFF;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .close-btn:hover {
+            transform: scale(1.2); /* Aumenta levemente no hover */
+            color: #FF0000; /* Muda a cor para vermelho no hover */
+        }
+                /* Container */
+        .video-play-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        /* Botão circular */
+        .video-play-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #017A5A, #015A42); /* Gradiente verde */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: #FFF;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            font-size: 55px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        /* Efeito pulsante */
+        .video-play-btn::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(1,90,66,0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            70% { transform: scale(1.3); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .video-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Texto abaixo */
+        .video-play-text {
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #015A42;
+            font-weight: 600;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .video-play-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 35px;
+            }
+
+            .video-play-btn::after {
+                width: 85px;
+                height: 85px;
+            }
+
+            .video-play-text {
+                font-size: 14px;
+            }
+        }
+
+        .video-row {
+            display: flex;
+            justify-content: center; /* centraliza os vídeos */
+            gap: 50px; /* espaço entre os players */
+            flex-wrap: wrap; /* quebra para baixo em telas pequenas */
+            margin: 30px 0;
+        }
+
+        .video-row .video-play-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+         .download-section {
+                padding: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+            }
+            .download-btn {
+                background-color: #9F43BE;
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 10px 15px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s ease;
+                font-weight: bold;
+                margin-top: 80px;
+            }
+
+            .download-btn i {
+                font-size: 18px;
+            }
+
+            .download-btn:hover {
+                background-color: #7D3598;
+            }
+        /* ===== Seções de Conclusão e Referências ===== */
+.conclusao, .referencias {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.conclusao {
+    background-color: #E2F4EB; /* fundo suave */
+}
+
+.referencias {
+    background-color: #FFF;
+    border-top: 3px solid #015A42;
+    border-bottom: 3px solid #015A42;
+}
+
+/* Títulos */
+.titulo-conclusao, .titulo-referencias {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50px;
+    font-weight: lighter;
+    color: #015A42;
+    margin: 10px auto 20px auto;
+    text-align: left; /* garante centralização em desktop */
+}
+
+/* Caixas de texto */
+.conclusao .caixa-texto, 
+.referencias .caixa-texto {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Parágrafos */
+.conclusao .caixa-texto p,
+.referencias .caixa-texto p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 19px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+/* Cores de texto diferentes */
+.conclusao .caixa-texto p {
+    color: #333;
+}
+.referencias .caixa-texto p {
+    color: #000;
+}
+
+/* Links em referências */
+.referencias .caixa-texto a {
+    word-break: break-all;
+    color: #015A42;
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .titulo-conclusao, .titulo-referencias {
+        font-size: 2rem;
+    }
+    .conclusao .caixa-texto p,
+    .referencias .caixa-texto p {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    .conclusao .caixa-texto, 
+    .referencias .caixa-texto {
+        max-width: 95%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-conclusao, .titulo-referencias {
+        font-size: 1.8rem;
+    }
+    .conclusao .caixa-texto, 
+    .referencias .caixa-texto {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+        /* Estilização do rodapé */
+        .footer {
+            border-top: 3px solid #015A42; /* Borda superior */
+            background-color: #FFFFFF; /* Fundo branco */
+            text-align: center; /* Centralizar texto */
+            padding: 15px 0; /* Espaçamento interno */
+            box-sizing: border-box; /* Inclui padding nas dimensões */
+        }
+
+        .footer p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #015A42; /* Cor do texto */
+            margin: 0; /* Remove espaçamento externo */
+        }
+        /* Texto descritivo */
+        .footer .fonte-menor {
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            color: #555; /* Cor neutra */
+            line-height: 1.5; /* Espaçamento entre linhas */
+            display: block; /* Garante quebra para nova linha */
+            margin-top: 10px; /* Espaço entre o texto e o divisor */
+        }
+                /* Divisor */
+        .footer-divider {
+            border: none; /* Remove borda padrão */
+            height: 1px; /* Altura da linha */
+            background-color: #015A42; /* Cor da linha */
+            margin: 10px auto; /* Espaçamento vertical */
+            width: 80%; /* Define a largura do divisor */
+            opacity: 0.5; /* Reduz opacidade para suavizar */
+        }
+                /* Ajustes do rodapé para mobile */
+        @media (max-width: 480px) {
+            .footer p {
+                font-size: 15px; /* Ajusta o tamanho da fonte */
+            }
+            .footer .fonte-menor {
+                font-size: 12px; /* Reduz tamanho da fonte */
+                line-height: 1.4; /* Ajusta o espaçamento */
+            }
+            .footer-divider {
+                width: 100%; /* Ajusta largura do divisor no mobile */
+            }
+        }
+        .logo-final {
+            background-color: #b9e5a92c;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 3px solid #015A42;
+        }
+
+        .logo-final img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+        /* Nova seção com os títulos ocupando a tela inteira */
+        .ficha-titulos {
+            background-color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .ficha-titulos h2,
+        .ficha-titulos h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-weight: lighter;
+            font-size: 40px;
+            color: #0058B4;
+            margin: 10px 0;
+        }
+
+        /* Mantemos a ficha técnica como estava */
+        .ficha-tecnica {
+            background-color: #FFF;
+            padding: 60px 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        .ficha-tecnica p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 15px auto;
+            max-width: 700px;
+        }
+
+        .ficha-tecnica strong {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .paragraforeduzido {
+            font-size: 14px;
+        }
+    </style>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://drive.google.com/thumbnail?id=1iZTd5_tOqqVTFtrgbqdKazN1J1Yk-PuE" alt="Logo">
+        </div>
+        <div class="menu-toggle">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x" style="display: none;"></i> <!-- Ícone de fechar menu -->
+        </div>
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#secao1">Tópico 1</a></li>
+            <li><a href="#secao2">Tópico 2</a></li>
+            <li><a href="#secao3">Tópico 3</a></li>
+            <li><a href="#secao4">Tópico 4</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="#conclusao">Conclusão</a></li>
+            <li><a href="#referencias">Refs Bibliográficas</a></li>
+        </ul>
+    </div>
+    
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    <!-- Capa do Livro -->
+    <section id="capa-livro" class="capa-livro">
+        <div class="borda superior"></div>
+        <div class="conteudo-capa">
+            <h1 class="titulo-programa">PROGRAMA DE ATUALIZAÇÃO em fundamentos da</h1>
+            <h1 class="titulo-materia">Matemática - NÍVEL 1</h1>
+            <h2 class="subtitulo-professor">Profª MEª Elisabeth Conceição Sena Gonçalves</h2>
+            <h2 class="subtitulo-professor">Profª MEª FlÁvia Cristina Franco de Lima ROSA</h2>
+        </div>
+        <div class="borda inferior"></div>
+    </section>
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    
+    <!-- Seção Introdução -->
+    <section id="introducao" class="introducao">
+        <!-- Barra Superior -->
+        <div class="barra-superior">
+            <h1 class="titulo-barra">UNIDADE 1 | CONJUNTOS NUMÉRICOS – PROBLEMAS ENVOLVENDO OPERAÇÕES</h1>
+        </div>
+    
+        <!-- Conteúdo -->
+        <div class="caixa-texto">
+            <div class="conteudo-centralizado">
+                <h1 class="titulo-introducao">INTRODUÇÃO</h1>
+                <p>Olá, estudante!</p>
+                <p>
+                    Nesta Unidade, vamos explorar a interpretação e a resolução de problemas que envolvem as operações
+                    matemáticas fundamentais. Para isso, retomaremos as principais regras de adição, subtração, multiplicação
+                    e divisão no conjunto dos números reais, fortalecendo a base necessária para a resolução de situações
+                    do cotidiano e contextos acadêmicos.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="secao1" id="secao1">
+
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                1. CONJUNTOS NUMÉRICOS
+            </h1>
+        </div>
+
+        <p>
+            O conjunto dos números reais é formado pelos números naturais, inteiros, racionais e irracionais.
+        </p>
+
+        <br>
+
+        <!-- Bloco de Figura Estática -->
+        <section class="bloco-figura tema-verde">
+        
+            <!-- Título -->
+            <h3 class="titulo-figura"><span class="figura"><strong>Figura 1</strong>.</span> Diagrama da composição dos números reais</h3>
+            <br>
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1759947762/figura_01_raive1.png"
+                    alt="Diagrama da composição dos números reais">
+            </div>
+        
+            <!-- Fonte -->
+            <p class="fonte-imagem"><strong><i>Fonte</strong>: Elaborada pelas autoras, 2019.</i></p>
+        
+            <!-- Descrição -->
+            <p class="descricao-figura">
+                <strong>Descrição da imagem:</strong>
+                A imagem apresenta um diagrama representando os subconjuntos dos números reais. No interior de um retângulo maior,
+                que representa o conjunto dos números reais, há dois subconjuntos principais: os números racionais e os irracionais. O
+                conjunto dos números
+                racionais é representado, na imagem, por uma região à esquerda com a letra Q, dentro da qual há outros conjuntos: o
+                conjunto dos números inteiros,
+                indicado pela letra Z, e, no interior de Z, o conjunto dos números naturais, indicado pela letra N. Na imagem, à direita
+                da região Q, encontra-se o
+                conjunto dos números irracionais, representado pela letra I, ocupando uma área separada dentro do retângulo. Ao lado do
+                diagrama, está escrita a
+                expressão: R é igual à união de Q com I, indicando que o conjunto dos números reais é formado pelos racionais e pelos
+                irracionais.
+            </p>
+        </section>
+
+        <br>
+
+        <p>
+            Acesse os títulos a seguir e conheça mais sobre os conjuntos numéricos:
+        </p>
+
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    CONJUNTO DOS NÚMEROS NATURAIS (N)
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        São os números usados para contagem. Utilizamos os naturais, por exemplo, para contar
+                        pessoas, objetos ou dias.
+                    </p>
+                    <p style="text-align:center;">
+                        \[
+                        N = \{ 0, 1, 2, 3, 4, \ldots \}
+                        \]
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    CONJUNTO DOS NÚMEROS INTEIROS (Z)
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        Além dos naturais, inclui os números inteiros negativos. Ou seja, abrange perdas, dívidas,
+                        temperaturas abaixo de zero, etc.
+                    </p>
+                    <p style="text-align:center;">
+                    \[
+                    Z = \{ \ldots , -3, -2, -1, 0, 1, 2, 3, \ldots \}
+                    \]
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    CONJUNTO DOS NÚMEROS RACIONAIS (Q)
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        São todos os números que podem ser escritos na forma de fração, isso inclui números
+                        inteiros, decimais exatos e dízimas periódicas. Usamos esses números ao dividir algo
+                        entre pessoas ou medir porções.
+                    </p>
+                    <p>
+                        Exemplos de números racionais: \[
+                        -\frac{3}{2};\ -1{,}333\ldots;\ -0{,}4;\ 0;\ \frac{2}{5};\ 1;\ 3
+                        \]
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    CONJUNTO DOS NÚMEROS IRRACIONAIS (I)
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        São números que não podem ser escritos como fração e apresentam uma parte decimal
+                        infinita e não repetitiva. Esses números surgem em situações como cálculos de diagonais,
+                        áreas circulares ou crescimento exponencial.
+                    </p>
+                    <p>
+                        Exemplos de números irracionais: \[ = \ldots,\ -\sqrt{3},\ -\sqrt[3]{2},\ \sqrt{2},\ \sqrt[5]{4},\ \pi,\ \ldots\]
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    CONJUNTO DOS NÚMEROS REAIS (R)
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p>
+                        O conjunto dos números reais é formado pela união dos conjuntos dos números racionais
+                        e irracionais.
+                    </p>
+                    <p style="text-align:center;">
+                        \[
+                        R = Q \cup I
+                        \]
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+    </section>
+    <section class="secao2" id="secao2">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                2. ADIÇÃO E SUBTRAÇÃO
+            </h1>
+        </div>
+        <p>
+            A adição e a subtração são operações fundamentais no conjunto dos números reais. Estão presentes
+            em diversas situações do cotidiano, como somar valores, calcular trocos ou identificar diferenças entre
+            quantidades. Compreender bem essas operações é importante, pois elas servem de base para resolver
+            problemas mais complexos. Agora, vamos revisar as regras de sinais e ver como aplicar corretamente
+            essas operações em diferentes contextos.
+
+        </p>
+
+        <br>
+        <section class="slider-texto-container tema-green" data-slider-id="2">
+            <!-- conteúdo do slider 2 -->
+            <div class="slider-texto-wrapper">
+                <div class="slide-texto ativo">
+                    <p class="conteudo-texto">
+                        <strong>
+                            Quando os sinais dos números são iguais, devemos fazer a adição e manter o sinal dos
+                            números.
+                        </strong>
+                    </p>
+                    <p class="conteudo-texto">
+                        Exemplos:
+                    </p>
+                    <p style="text-align: center; line-height: 2;">
+                        21 + 35 = 56<br>
+                        23 + 34 + 20 = 77<br>
+                        100 + 40 + 12 = 152<br>
+                        1,2 + 1,43 + 2 = 4,63<br>
+                        −21 −24 = −45<br>
+                        −201 −424 = −625<br>
+                        -2,1 =24 -10 = −36,1<br>
+                        -0,2 -0,8 = -1 ou -1,0
+                    </p>
+                    
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto">
+                        <strong>
+                            Quando os sinais são diferentes, devemos fazer a subtração e manter o sinal do maior
+                            número em módulo.
+                        </strong>
+                    </p>
+                    <p class="conteudo-texto">
+                        Exemplos:
+                    </p>
+                    <p style="text-align: center; line-height: 2;">
+                        21 − 15 = 6<br>
+                        −23 + 34 = 11<br>
+                        −40 + 32 = −8<br>
+                        100 − 200 + 300 = 400 − 200 = 200<br>
+                        −20 +30 −40 +10 = −60 +40 = −20<br>
+                        
+                    </p>
+                </div>
+                
+            </div>
+        
+            <button class="seta-texto esquerda" onclick="mudarSlideTexto(this, -1)">&#10094;</button>
+            <button class="seta-texto direita" onclick="mudarSlideTexto(this, 1)">&#10095;</button>
+        
+            <div class="slider-texto-indicadores">
+            </div>
+        </section>
+        <br>
+        <p>
+            <strong>
+                Observe que, nos dois últimos exemplos, juntamos primeiro os números de sinais iguais e depois
+                realizamos a subtração (mantendo o sinal do número de maior módulo).
+            </strong>
+        </p>
+        <p>
+            No caso de termos parênteses nas operações, devemos eliminá-los primeiro, fazendo a regra “jogo” de sinais.
+        </p>
+        <br>
+        <!-- Container principal -->
+        <section class="quadro-sinais">
+            <div class="quadro-superior">
+                <div class="metade-esquerda">
+                    <p style="text-align: center;">
+                        + ( + ) = +<br>
+                        − ( − ) = +<br>
+                    </p><br>
+                    <p style="text-align: center; font-size: 17px;">
+                        <strong>“Sinais iguais 🡪 positivo”</strong>
+                    </p>
+                </div>
+                <div class="metade-direita">
+                    <p style="text-align: center;">
+                        + ( − ) = −<br>
+                        − ( + ) = −<br>
+                    </p><br>
+                    <p style="text-align: center; font-size: 17px;">
+                        <strong>“Sinais diferentes 🡪 negativo”</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="quadro-inferior">
+                <p style="font-size: 17px;"><strong>Exemplos:</strong></p>
+                <p style="text-align: center; line-height: 2;">
+                    +(+10) = +10 ou 10<br>
+                    −(−8) = +8<br>
+                    +(−12) = −12<br>
+                    −(+23) = −23<br>
+                    +(+10) + (−12) = +10 − 12 = −2<br>
+                    −(+25) − (−37) = −25 + 37 = 12<br>
+                    100 + (−200) − (−300) = 100 − 200 + 300 = 200
+                </p><br>
+            </div>
+        </section>
+    </section>
+    <section class="secao1" id="secao3">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                3. MULTIPLICAÇÃO E DIVISÃO
+            </h1>
+        </div>
+        <p>
+            A multiplicação e a divisão também fazem parte das operações básicas, sendo utilizadas para representar
+            repetições, distribuir valores e resolver situações do dia a dia, como calcular gastos em grupo ou medir áreas.
+            Para resolver essas operações com números negativos, é necessário compreender bem a lógica dos sinais.
+        </p>
+        <br>
+        
+        <!-- Quadro violeta -->
+        <section class="quadro-violeta">
+            <p>
+                Quando multiplicamos ou dividimos dois números, devemos primeiro fazer a regra de sinais.
+            </p>
+            <br>
+            <!-- Container invisível com duas colunas -->
+            <div class="colunas-invisiveis">
+                <div class="coluna">
+                    <p style="font-size: 25px; line-height: 2; text-align: center;">
+                        \( + \cdot + = + \)<br>
+                        \( - \cdot - = + \)<br>
+                        \( + \cdot - = - \)<br>
+                        \( - \cdot + = - \)
+                    </p>
+                </div>
+                <div class="coluna">
+                    <p style="font-size: 25px; line-height: 2; text-align: center;">
+                        \( + \div + = + \)<br>
+                        \( - \div - = + \)<br>
+                        \( + \div - = - \)<br>
+                        \( - \div + = - \)
+                    </p>
+                </div>
+            </div>
+        </section>
+        <br>
+        <p>
+            Observe que, <strong>quando multiplicamos ou dividimos dois números de sinais iguais, o resultado será
+            sempre positivo.</strong> Já <strong>quando multiplicamos ou dividimos dois números de sinais diferentes, o
+            resultado será sempre negativo.</strong> Veja a seguir alguns exemplos navegando pelas setas:
+        </p>
+        <br>
+        <div class="quadro-vertical">
+            <div class="retangulo">
+                (−2) · (+10) = −20<br><br>
+                (−220) ÷ (+10) = −22
+            </div>
+            <div class="retangulo">
+                (−20) · (−3) = 60<br><br>
+                (−20) ÷ (−4) = −5
+            </div>
+            <div class="retangulo">
+                (+21) · (−4) = −84<br><br>
+                (+24) ÷ (−4) = −6
+            </div>
+            <div class="retangulo">
+                (+21) · (+10) = 210<br><br>
+                (+250) ÷ 25 = 10
+            </div>
+            <div class="retangulo">
+                (−2) · (−5) · (+10) = 100<br><br>
+                (−200) ÷ (−5) ÷ (+10) = 4
+            </div>
+            <div class="retangulo">
+                (−2) · (8) = −16<br><br>
+                (−28) ÷ 4 = −7
+            </div>
+            <div class="retangulo">
+                −8 · 7 = −56<br><br>
+                −85 ÷ 7 = −12</div>
+        </div>
+    </section>
+    <section class="secao2" id="secao4">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                4. RESOLUÇÃO DE PROBLEMAS
+            </h1>
+        </div>
+        <p>
+            Para resolver um problema, leia o enunciado na íntegra, com concentração, e anote os pontos importantes,
+            para depois resolvê-lo.
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>1</strong>. Em um anfiteatro há 25 fileiras e em cada fileira há 20 poltronas. Qual o número total de poltronas neste
+                    anfiteatro?
+                </p>
+               
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong> São 25 fileiras e há 20 poltronas por fileira, então basta multiplicar o número de fileiras pela
+                quantidade de poltronas existente em cada uma.</p>
+                <p>
+                    
+                </p>
+                <p style="font-size: 22px; line-height: 2;">
+                    25 · 20 = 500 poltronas.
+                </p>
+                <br>
+                <p><strong>Resposta:</strong>
+                    Neste anfiteatro há 500 poltronas.
+                </p>
+            </div>
+        </div>
+        
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>2</strong>. Jonas possuía 130 figurinhas e decidiu doar algumas para seus dois primos. O primo mais velho recebeu
+                    32 figurinhas, e o mais novo, 25. Com quantas figurinhas Jonas ficou?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong> Jonas doou algumas de suas figurinhas, ou seja, ele retirou. Então devemos realizar a
+                subtração.</p>
+                <p>
+                
+                </p>
+                <p style="font-size: 22px; line-height: 2; text-align: center;">
+                    130 − 32 − 25 = 73
+                </p>
+                <br>
+                <p><strong>Resposta:</strong>
+                    Jonas ficou com 73 figurinhas.
+                </p>
+            </div>
+        </div>
+        
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>3</strong>. Na casa de Marta havia 17 frutas entre maçãs, peras e laranjas. Sabe-se que a quantidade de laranjas e
+                    maçãs era a mesma e 3 das frutas eram peras. Quantas laranjas haviam?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong> Como o total de frutas era 17, sendo 3 peras, então subtraímos as peras.</p>
+                <p>
+                </p>
+                <p style="font-size: 22px; line-height: 2; text-align: center;">
+                    17 − 3 = 14
+                </p>
+                <p>
+                    Agora, como a quantidade de laranjas e maçãs era a mesma, basta dividir esse resultado por 2.
+                </p>
+                <p style="font-size: 22px; line-height: 2; text-align: center;">
+                    14 ÷ 2 = 7
+                </p>
+                <p><strong>Resposta:</strong>
+                    Havia 7 laranjas.
+                </p>
+            </div>
+        </div>
+        
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>4</strong>. Em 1 hora um ferramenteiro produz 20 peças idênticas. Mantendo o mesmo ritmo, quantas peças
+                    consegue produzir em 3 horas e 21 minutos?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong> Inicialmente, vamos transformar o tempo em minutos.<p>
+                </p>
+                <br>
+                <p>
+                    1 hora = 60 minutos
+                </p>
+                <p>
+                    3 horas e 21 minutos = 3 · 60 + 21 = 201 minutos.
+                </p>
+                <p>
+                    E verificar em quanto tempo se faz uma peça.
+                </p>
+                <p>
+                    20 peças em 60 minutos → 60 ÷ 20 = 3 minutos por peça.
+                </p>
+                <p>
+                    Agora, podemos descobrir quantas peças podem ser produzidas em 201 minutos.
+                </p>
+                <p>
+
+                </p>
+                <p>
+                    201 ÷ 3 = 67 peças
+                </p>
+                <br>
+                <p><strong>Resposta:</strong>
+                    Consegue produzir 67 peças em 3 horas e 21 minutos.
+                </p>
+            </div>
+        </div>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>5</strong>. Uma empresa de construção de rodovias, conseguiu pavimentar 1,2 km no 1º dia, no 2º dia 250 m a mais
+                    do que no primeiro e apenas metade do 2º dia no 3º. Qual foi o total pavimentado nestes três dias?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <strong>Resolução:</strong> Obs: 250m ÷ 1000 = 0,25 km
+                </p>
+                <br>
+                
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1759994439/figura_exerc%C3%ADcio05_hm4kzs.png"
+                        alt="Diagrama da composição dos números reais">
+                </div>
+                <p>
+                    Para fazer a transformação de m para km devemos dividir por 1000.
+                </p>
+                <p>
+                    1º dia → 1,2 <i>km</i>
+                </p>
+                <p>
+                    2º dia (250 metros a mais do que no primeiro dia) → 1,2 + 0,25 = 1,45 <i>km</i>
+                </p>
+                <p>
+                    3º dia (metade do 2º dia) → 1,45 ÷ 2 = 0,725 <i>km</i>
+                </p>
+                <p>
+                    Total → 1,2 + 1,45 + 0,725 = 3,375 <i>km</i>
+                </p>
+
+                <br>
+
+                <p><strong>Resposta:</strong>
+                    O total pavimentado nos três dias é igual a 3,375 km.
+                </p>
+            </div>
+        </div>
+
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>6</strong>. Para fabricar uma engrenagem perde-se 200 gramas de determinado material e sabe-se que é possível
+                    fabricar 30 destas engrenagens em 8 horas de trabalho. Quanto desse material (em kg) será desperdiçado
+                    em 100 horas de trabalho?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <strong>Resolução:</strong> Para determinar o número de engrenagens fabricadas em 100 horas, vamos efetuar dois
+                    passos:
+                </p>
+                <p style="font-size: 22px; line-height: 2; text-align: center;">
+                    100 ÷ 8 = 12,5
+                </p>
+                <p style="font-size: 20px; line-height: 2; text-align: center;">
+                    12,5 · 30 = 375 engrenagens.
+                </p>
+                <p>
+                    Agora é só calcular a quantidade de perda.
+                </p>
+                <p style="font-size: 22px; line-height: 2; text-align: center;">
+                    375 ÷ 200 <i>gramas</i> = 75000 <i>gramas</i> = 75 <I>kg</I>
+                </p>
+                <br>
+                <p><strong>Resposta:</strong>
+                    Serão desperdiçados 75 kg desse material em 100 horas.
+                </p>
+            </div>
+        </div>
+
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>7</strong>. Numa determinada cidade a temperatura era de –1 ºC. Durante a madrugada, ocorreu uma queda na
+                    temperatura de 6 ºC. Qual foi a temperatura registrada após a queda?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <strong>Resolução:</strong> Se a temperatura inicial era -1 e houve uma queda, precisamos subtrair esse valor.
+                </p>
+                <p style="font-size: 22px; line-height: 2; text-align: center;">
+                    –1 –6 = –7ºC
+                </p>
+                
+                <br>
+                <p><strong>Resposta:</strong>
+                    A temperatura registrada após a queda foi de – 7 ºC.
+                </p>
+            </div>
+        </div>
+
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>8</strong>. Um carro percorre 9,8 quilômetros com 1 litro de combustível. Se o litro desse combustível custa R$
+                    2,68, quantos quilômetros ele consegue percorrer abastecendo R$ 120,60? (Considere que o consumo de
+                    combustível seja constante.)
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <strong>Resolução:</strong> Vamos verificar quantos litros de combustível correspondem a R$ 120,60.
+                </p>
+                <p style="font-size: 22px; line-height: 2; text-align: center;">
+                    120,60 ÷ 2,68 = 45 litros
+                </p>
+                <p>
+                    Se o carro percorre 9,8 quilômetros com 1 litro,
+                </p>
+                <p style="font-size: 22px; line-height: 2; text-align: center;">
+                    45 ⋅ 9,8 = 441<i>km</i>
+                </p>
+                <br>
+                <p><strong>Resposta:</strong>
+                    Percorrerá 441 km.
+                </p>
+            </div>
+        </div>
+
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>9</strong>. A cada 5 segundos são produzidos 7 parafusos. Quantos parafusos são produzidos em 3 horas?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <strong>Resolução:</strong> Inicialmente, vamos transformar as horas em segundos.
+                </p>
+                <p>
+                    3 horas = 3 ⋅ 60 = 180 minutos = 180 ⋅ 60 = 10800 segundos
+                </p>
+                <p>
+                    Para descobrir a quantidade de parafusos, vamos dividir por 5 (tempo para produção) e multiplicar por 7
+                    (quantidade produzida nesse tempo).
+                </p>
+                <p style="font-size: 22px;">
+                    10800 ÷ 5 = 2160
+                </p>
+                <p style="font-size: 20px;">
+                    2160 ⋅ 7 = 15120 parafusos
+                </p>
+                <br>
+                <p><strong>Resposta:</strong>
+                    São produzidos 15.120 parafusos em 3 horas.
+                </p>
+            </div>
+        </div>
+
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>10</strong>. Comprando 5 lápis e 2 canetas, foram gastos R$10,45. Se cada caneta custa R$2,10, determine o valor
+                    de cada lápis.
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <strong>Resolução:</strong> Cada caneta custa R$ 2,10, e foram compradas 2 canetas.
+                </p>
+                <p style="font-size: 20px; line-height: 2; text-align: center;">
+                    10,45 – 2 ⋅ 2,10 = 10,45 – 4,20 = 6,25
+                </p>
+                <p>
+                    Como foram comprados 5 lápis, vamos dividir esse valor por 5.
+                </p>
+                <p style="font-size: 20px; line-height: 2; text-align: center;">
+                    6,25 ÷ 5 = 1,25
+                </p>
+                <br>
+                <p><strong>Resposta:</strong>
+                    Cada lápis custa R$1,25.
+                </p>
+            </div>
+        </div>
+        <br>
+        <div class="video-row">
+            <div class="video-play-wrapper">
+                <div class="video-play-btn" data-video="https://drive.google.com/file/d/1xePKCYg8Ru3SNds34lx9WmGUE1Vh5ShN/preview" onclick="openVideoModal(this)">
+                    <i class='bx bx-play'></i>
+                </div>
+                <div class="video-play-text">Vídeo 1</div>
+            </div>
+        
+            <div class="video-play-wrapper">
+                <div class="video-play-btn" data-video="https://drive.google.com/file/d/1xePKCYg8Ru3SNds34lx9WmGUE1Vh5ShN/preview" onclick="openVideoModal(this)">
+                    <i class='bx bx-play'></i>
+                </div>
+                <div class="video-play-text">Vídeo 2</div>
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div id="videoModal" class="video-modal">
+            <div class="video-content" onclick="event.stopPropagation()">
+                <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+    <!-- Seção Conclusão -->
+    <section id="conclusao" class="conclusao">
+        <!-- Conteúdo -->
+        <div class="conteudo-conclusao">
+            <div class="caixa-texto">
+                <h1 class="titulo-conclusao">CONCLUSÃO</h1>
+                <p>
+                    Nesta Unidade de Estudos, revisamos as regras de sinais aplicadas às operações com números reais e
+                    utilizamos esses conhecimentos na interpretação e resolução de problemas. Esse exercício contribui para o
+                    desenvolvimento do raciocínio lógico, essencial em diversas situações do cotidiano e em contextos acadêmicos.
+                </p>
+    
+            </div>
+        </div>
+        <div id="download" class="download-section">
+            <a href="https://drive.google.com/uc?export=download&id=1wJticvPH0_4VrmjFFNvucuxasi_zJPzt" class="download-btn"> 
+                Baixar PDF <i class="fas fa-download"></i> <!-- Ícone de download -->
+            </a>
+        </div>
+    </section>
+    <!-- Seção Referências-->
+    <section id="referencias" class="referencias">
+        <!-- Conteúdo -->
+        <div class="conteudo-referencias">
+            <div class="caixa-texto">
+                <h1 class="titulo-referencias">REFERÊNCIAS</h1>
+                <p>GOUVEIA, R. Números Reais. <strong>Toda Matéria</strong>, 31 dez. 2020. Disponível em: https://www.todamateria.com.
+                br/numeros-reais/. Acesso em: 25 jan. 2021.
+                <p>
+                    NOÉ, M. Adição e Subtração de Números Inteiros. <strong>Prepara Enem</strong>, [s.d.]. Disponível: https://www.
+                    preparaenem.com/matematica/adicao-e-subtracao-de-numeros-inteiros-.htm. Acesso em: 25 jan. 2021.
+                </p>
+                <p>
+                    OLIVEIRA, N. C. N. Conjunto dos números inteiros. <strong>Mundo Educação</strong>, [s.d.]. Disponível em: https://
+                    mundoeducacao.bol.uol.com.br/matematica/conjunto-dos-numeros-reais.htm. Acesso em: 25 jan. 2021.
+                </p>
+                <p>
+                    OLIVEIRA, N. C. N. Operações com números inteiros. <strong>Mundo Educação</strong>, [s.d.]. Disponível em: https://
+                    mundoeducacao.bol.uol.com.br/matematica/operacao-com-numeros-inteiros.htm. Acesso em: 25 jan.
+                    2021.
+                </p>
+                <p>
+                    PROJETOS DE MEDICINA. <strong>Exercícios de Matemática</strong>. Projetos de Medicina,
+                    [s.d.].
+                    Disponível
+                    em:
+                    http://projetomedicina.com.br/site/attachments/article/526/
+                    matematica_basica_exercicios_gabarito_problemas.pdf. Acesso em: 25 jan. 2021.
+                </p>
+                <p>
+                    SILVA, L. P. M. Números reais. <strong>Prepara Enem</strong>, [s.d.]. Disponível em: https://www.preparaenem.com/
+                    matematica/numeros-reais.htm. Acesso em: 25 jan. 2021.
+                </p>
+                <p>
+                    SILVA, M. N. P. Multiplicação de números inteiros. <strong>Brasil Escola</strong>, [s.d.]. Disponível em: https://brasilescola.
+                    uol.com.br/matematica/multiplicacao-numeros-inteiros.htm. Acesso em: 25 jan. 2021.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Seção com os créditos e ficha técnica -->
+    <section class="ficha-tecnica">
+        <p>CASA NOSSA SENHORA DA PAZ – AÇÃO SOCIAL FRANCISCANA, PROVÍNCIA FRANCISCANA DA <br>
+            IMACULADA CONCEIÇÃO DO BRASIL – ORDEM DOS FRADES MENORES</p>
+        <br>
+        <p><strong>GESTOR DO CENTRO DE INOVAÇÃO E SOLUÇÕES EDUCACIONAIS - CISE</strong>
+            Franklin Portela Correia</p>
+    
+        <p><strong>COORDENADORA DO PROGRAMA DE ATUALIZAÇÃO</strong>
+            Flávia Cristina Franco de Lima Rosa</p>
+    
+        <p><strong>SUPERVISORA EDUCACIONAL</strong>
+            Juliane Cristine Batista</p>
+    
+        <p><strong>DESIGNER INSTRUCIONAL</strong>
+            Ana Angelica Miranda Ramos</p>
+    
+        <p><strong>PROJETO GRÁFICO</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DIAGRAMADORES</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DESENVOLVEDOR</strong>
+            Pedro Vinicius Pires de Oliveira Dias</p>
+    
+        <p><strong>PRODUTOR AUDIOVISUAL</strong>
+            Cassio Martins de Carvalho</p>
+    
+        <p><strong>EDIÇÃO DE VÍDEOS</strong>
+            Rafael da Silva Oliveira<br>
+            Hugo Henrique Ferreira da Silva</p>
+    
+        <br><br>
+        <p><span class="paragraforeduzido">
+                © 2026 Universidade São Francisco<br>
+                Avenida São Francisco de Assis, 218<br>
+                CEP 12916-900 – Bragança Paulista/SP
+        </p></span>
+    </section>
+    <footer class="footer">
+        <p>Copyright © de Universidade São Francisco</p>
+        <hr class="footer-divider">
+        <span class="fonte-menor">Todos os direitos reservados. Este ebook ou
+            qualquer parte dele não pode ser reproduzido ou usado em quaisquer formas (eletrônico,
+            gravação, fotocópia, distribuição pela Internet ou outros) sem autorização
+            expressa, por escrito, da <strong>Universidade São Francisco.</strong></span>
+    </footer>
+    <script>
+        // Navbar
+            document.querySelector('.menu-toggle').addEventListener('click', () => {
+                const menu = document.querySelector('.navbar ul');
+                const icons = document.querySelectorAll('.menu-toggle i'); // Seleciona ambos os ícones
+
+                menu.classList.toggle('show'); // Alterna a visibilidade do menu
+
+                // Alterna entre o ícone de abrir (menu) e o ícone de fechar (x)
+                icons[0].style.display = icons[0].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de menu
+                icons[1].style.display = icons[1].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de fechar
+            });
+            // Fechar o menu ao clicar em um link
+            const links = document.querySelectorAll('.navbar ul li a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    const menu = document.querySelector('.navbar ul');
+                    const icons = document.querySelectorAll('.menu-toggle i');
+
+                    // Fecha o menu ao clicar no link
+                    menu.classList.remove('show');
+                    icons[0].style.display = 'block'; // Exibe o ícone de menu
+                    icons[1].style.display = 'none'; // Esconde o ícone de fechar
+                });
+            });
+            // Captura o elemento navbar
+            const navbar = document.querySelector('.navbar');
+
+            // Função que altera a opacidade da navbar
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { // Quando o scroll for maior que 50px
+                    navbar.style.backgroundColor = 'rgba(159, 67, 190, 0.8)'; // Opacidade 80%
+                } else {
+                    navbar.style.backgroundColor = '#9F43BE'; // Cor original sem transparência
+                }
+            });
+
+
+            // Cria o container lightbox
+            const lightbox = document.createElement("div");
+            lightbox.classList.add("lightbox");
+            document.body.appendChild(lightbox);
+
+            let scale = 1; // nível de zoom
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            document.querySelectorAll(".zoomable").forEach(img => {
+                img.addEventListener("click", () => {
+                    const imgClone = document.createElement("img");
+                    imgClone.src = img.src;
+                    imgClone.alt = img.alt;
+                    imgClone.style.objectFit = "contain"; // garante que abre ajustada
+                    imgClone.style.maxWidth = "100%";
+                    imgClone.style.maxHeight = "100%";
+
+                    lightbox.innerHTML = "";
+                    lightbox.appendChild(imgClone);
+                    lightbox.style.display = "flex";
+                    scale = 1;
+                    translateX = translateY = 0;
+                    updateTransform(imgClone);
+
+                    // Mensagem de dica
+                    const hint = document.createElement("div");
+                    hint.classList.add("lightbox-hint");
+                    hint.innerText = "Use a roda do mouse para dar zoom e arraste para mover";
+                    lightbox.appendChild(hint);
+
+                    // Remove a dica após 4s
+                    setTimeout(() => {
+                        if (hint && hint.parentNode) {
+                            hint.remove();
+                        }
+                    }, 4000);
+
+                    // Zoom com scroll
+                    imgClone.addEventListener("wheel", e => {
+                        e.preventDefault();
+                        scale += e.deltaY * -0.001;
+                        scale = Math.min(Math.max(1, scale), 5); // limite de zoom
+                        updateTransform(imgClone);
+                    });
+
+                    // Arrastar imagem
+                    imgClone.addEventListener("mousedown", e => {
+                        isDragging = true;
+                        startX = e.clientX - translateX;
+                        startY = e.clientY - translateY;
+                        lightbox.style.cursor = "grabbing";
+                    });
+
+                    window.addEventListener("mousemove", e => {
+                        if (!isDragging) return;
+                        translateX = e.clientX - startX;
+                        translateY = e.clientY - startY;
+                        updateTransform(imgClone);
+                    });
+
+                    window.addEventListener("mouseup", () => {
+                        isDragging = false;
+                        lightbox.style.cursor = "grab";
+                    });
+                });
+            });
+
+            // Fecha clicando fora da imagem
+            lightbox.addEventListener("click", e => {
+                if (e.target === lightbox) {
+                    lightbox.style.display = "none";
+                }
+            });
+
+            // Função para aplicar zoom + movimento
+            function updateTransform(img) {
+                img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+            }
+            document.querySelectorAll('.slider-texto-container').forEach(initSliderTexto);
+
+            function initSliderTexto(container) {
+                const slides = container.querySelectorAll('.slide-texto');
+                const indicatorsContainer = container.querySelector('.slider-texto-indicadores');
+
+                indicatorsContainer.innerHTML = ''; // Limpa indicadores anteriores
+
+                // Cria os dots dinamicamente
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot-texto');
+                    dot.onclick = () => mostrarSlide(index);
+                    indicatorsContainer.appendChild(dot);
+                });
+
+                const dots = container.querySelectorAll('.dot-texto');
+                let currentIndex = 0;
+
+                function mostrarSlide(index) {
+                    slides.forEach(slide => slide.classList.remove('ativo'));
+                    dots.forEach(dot => dot.classList.remove('ativo'));
+
+                    currentIndex = (index + slides.length) % slides.length;
+
+                    slides[currentIndex].classList.add('ativo');
+                    dots[currentIndex].classList.add('ativo');
+                }
+
+                // Armazena a função no container para chamadas externas
+                container.mostrarSlideTexto = mostrarSlide;
+                container.getCurrentIndex = () => currentIndex;
+                mostrarSlide(0);
+            }
+
+            // Chamado pelos botões de seta
+            function mudarSlideTexto(button, direcao) {
+                const container = button.closest('.slider-texto-container');
+                const currentIndex = container.getCurrentIndex();
+                container.mostrarSlideTexto(currentIndex + direcao);
+            }
+
+            // Chamado pelos dots (não necessário, mas deixado por compatibilidade)
+            function irParaSlideTexto(dot, index) {
+                const container = dot.closest('.slider-texto-container');
+                container.mostrarSlideTexto(index);
+            }
+
+            document.querySelectorAll('.acordeon-header, .acordeon-headerb, .acordeon-headerc, .acordeon-headerd').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isVisible = content.style.display === 'block';
+                    content.style.display = isVisible ? 'none' : 'block';
+                    const icon = header.querySelector('.acordeon-icon');
+                    if (icon) {
+                        icon.classList.toggle('bx-chevron-up', !isVisible);
+                        icon.classList.toggle('bx-chevron-down', isVisible);
+                    }
+                });
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                    const videoModal = document.getElementById('videoModal');
+                    const iframe = document.getElementById('videoIframe');
+
+                    // Função para abrir modal
+                    window.openVideoModal = function (element) {
+                        const videoLink = element.getAttribute("data-video");
+                        iframe.src = videoLink;
+                        videoModal.style.display = "flex";
+                    }
+
+                    // Função para fechar modal
+                    window.closeVideoModal = function () {
+                        iframe.src = "";
+                        videoModal.style.display = "none";
+                    }
+
+                    // Fecha ao clicar fora do conteúdo
+                    videoModal.addEventListener('click', function (event) {
+                        if (event.target === this) {
+                            closeVideoModal();
+                        }
+                    });
+                });
+    </script>
+</body>
+</html>
