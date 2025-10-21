@@ -1179,7 +1179,7 @@
 
         /* Tema verde */
         .tema-verde {
-            border-color: #92d678;
+            border-color: #9F43BE;
         }
         .tema-verdeborda {
             border-color: #015A42 !important;
@@ -1744,6 +1744,21 @@
 
         .paragraforeduzido {
             font-size: 14px;
+        }
+
+        /* Container dos vídeos */
+        .container-videos {
+            border: 2px solid #015A42;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
         }
     </style>
 <body>
@@ -2470,27 +2485,35 @@
             </div>
         </div>
         <br>
-        <div class="video-row">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 19px !important;">
+                Assista aos vídeos abaixo:
+            </h1>
+        </div>
+        <!-- Container dos vídeos -->
+        <div class="container-videos">
             <div class="video-play-wrapper">
                 <div class="video-play-btn" data-video="https://drive.google.com/file/d/1xePKCYg8Ru3SNds34lx9WmGUE1Vh5ShN/preview" onclick="openVideoModal(this)">
                     <i class='bx bx-play'></i>
                 </div>
-                <div class="video-play-text">Vídeo 1</div>
+                <div class="video-play-text">Clique para assistir</div>
             </div>
         
             <div class="video-play-wrapper">
                 <div class="video-play-btn" data-video="https://drive.google.com/file/d/1xePKCYg8Ru3SNds34lx9WmGUE1Vh5ShN/preview" onclick="openVideoModal(this)">
                     <i class='bx bx-play'></i>
                 </div>
-                <div class="video-play-text">Vídeo 2</div>
+                <div class="video-play-text">Clique para assistir</div>
             </div>
         </div>
         
-        <!-- Modal -->
-        <div id="videoModal" class="video-modal">
+        <!-- Modal com o vídeo -->
+        <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
             <div class="video-content" onclick="event.stopPropagation()">
                 <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
-                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0" allowfullscreen></iframe>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -2520,36 +2543,40 @@
         <div class="conteudo-referencias">
             <div class="caixa-texto">
                 <h1 class="titulo-referencias">REFERÊNCIAS</h1>
-                <p>GOUVEIA, R. Números Reais. <strong>Toda Matéria</strong>, 31 dez. 2020. Disponível em: https://www.todamateria.com.
-                br/numeros-reais/. Acesso em: 25 jan. 2021.
-                <p>
-                    NOÉ, M. Adição e Subtração de Números Inteiros. <strong>Prepara Enem</strong>, [s.d.]. Disponível: https://www.
-                    preparaenem.com/matematica/adicao-e-subtracao-de-numeros-inteiros-.htm. Acesso em: 25 jan. 2021.
+                <p>GOUVEIA, R. Números Reais. <strong>Toda Matéria</strong>, 31 dez. 2020. Disponível em:
+                    <a href="https://www.todamateria.com.br/numeros-reais/"
+                        target="_blank">https://www.todamateria.com.br/numeros-reais/</a>
+                    Acesso em: 25 jan. 2021.
                 </p>
-                <p>
-                    OLIVEIRA, N. C. N. Conjunto dos números inteiros. <strong>Mundo Educação</strong>, [s.d.]. Disponível em: https://
-                    mundoeducacao.bol.uol.com.br/matematica/conjunto-dos-numeros-reais.htm. Acesso em: 25 jan. 2021.
+                <p>NOÉ, M. Adição e Subtração de Números Inteiros. <strong>Prepara Enem</strong>, [s.d.]. Disponível:
+                    <a href="https://www.preparaenem.com/matematica/adicao-e-subtracao-de-numeros-inteiros-.htm"
+                        target="_blank">https://www.preparaenem.com/matematica/adicao-e-subtracao-de-numeros-inteiros-.htm</a>
+                    Acesso em: 25 jan. 2021.
                 </p>
-                <p>
-                    OLIVEIRA, N. C. N. Operações com números inteiros. <strong>Mundo Educação</strong>, [s.d.]. Disponível em: https://
-                    mundoeducacao.bol.uol.com.br/matematica/operacao-com-numeros-inteiros.htm. Acesso em: 25 jan.
-                    2021.
+                <p>OLIVEIRA, N. C. N. Conjunto dos números inteiros. <strong>Mundo Educação</strong>, [s.d.]. Disponível em:
+                    <a href="https://mundoeducacao.uol.com.br/matematica/conjunto-dos-numeros-reais.htm"
+                        target="_blank">https://mundoeducacao.uol.com.br/matematica/conjunto-dos-numeros-reais.htm</a>
+                    Acesso em: 25 jan. 2021.
                 </p>
-                <p>
-                    PROJETOS DE MEDICINA. <strong>Exercícios de Matemática</strong>. Projetos de Medicina,
-                    [s.d.].
-                    Disponível
-                    em:
-                    http://projetomedicina.com.br/site/attachments/article/526/
-                    matematica_basica_exercicios_gabarito_problemas.pdf. Acesso em: 25 jan. 2021.
+                <p>OLIVEIRA, N. C. N. Operações com números inteiros. <strong>Mundo Educação</strong>, [s.d.]. Disponível em:
+                    <a href="https://mundoeducacao.uol.com.br/matematica/operacao-com-numeros-inteiros.htm"
+                        target="_blank">https://mundoeducacao.uol.com.br/matematica/operacao-com-numeros-inteiros.htm</a>
+                    Acesso em: 25 jan. 2021.
                 </p>
-                <p>
-                    SILVA, L. P. M. Números reais. <strong>Prepara Enem</strong>, [s.d.]. Disponível em: https://www.preparaenem.com/
-                    matematica/numeros-reais.htm. Acesso em: 25 jan. 2021.
+                <p>PROJETOS DE MEDICINA. <strong>Exercícios de Matemática</strong>. Projetos de Medicina, [s.d.].
+                    Disponível em: <a
+                        href="https://projetomedicina.com.br/site/attachments/article/526/matematica_basica_exercicios_gabarito_problemas.pdf"
+                        target="_blank">https://projetomedicina.com.br/site/attachments/article/526/matematica_basica_exercicios_gabarito_problemas.pdf</a>
+                    Acesso em: 25 jan. 2021.
                 </p>
-                <p>
-                    SILVA, M. N. P. Multiplicação de números inteiros. <strong>Brasil Escola</strong>, [s.d.]. Disponível em: https://brasilescola.
-                    uol.com.br/matematica/multiplicacao-numeros-inteiros.htm. Acesso em: 25 jan. 2021.
+                <p>SILVA, L. P. M. Números reais. <strong>Prepara Enem</strong>, [s.d.]. Disponível em:
+                    <a href="https://www.preparaenem.com/matematica/numeros-reais.htm"
+                        target="_blank">https://www.preparaenem.com/matematica/numeros-reais.htm</a> Acesso em: 25 jan. 2021.
+                </p>
+                <p>SILVA, M. N. P. Multiplicação de números inteiros. <strong>Brasil Escola</strong>, [s.d.]. Disponível em:
+                    <a href="https://brasilescola.uol.com.br/matematica/multiplicacao-numeros-inteiros.htm"
+                        target="_blank">https://brasilescola.uol.com.br/matematica/multiplicacao-numeros-inteiros.htm</a> Acesso em: 25
+                    jan. 2021.
                 </p>
             </div>
         </div>
@@ -2586,6 +2613,7 @@
             Cassio Martins de Carvalho</p>
     
         <p><strong>EDIÇÃO DE VÍDEOS</strong>
+            Diogo Lefort Silva<br>
             Rafael da Silva Oliveira<br>
             Hugo Henrique Ferreira da Silva</p>
     
